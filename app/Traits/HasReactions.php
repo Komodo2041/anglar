@@ -22,6 +22,21 @@ trait HasReactions
         return $this->reactions()->get()->toArray();
     }
 
+    public function formattedReactionsList(): array
+    {
+        $res = [];
+        $comp = $this->reactions()->get()->pluck("id", "emoji"); 
+        foreach ($comp AS $key => $val) {
+           if (isset($res[$key])) {
+              $res[$key]++;
+           } else {
+              $res[$key] = 1;
+           }
+        }
+
+        return $res;
+    }
+
     public function addReaction(int $userId, string $emoji): Reaction
     {
         return $this->reactions()->create([

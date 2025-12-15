@@ -21,7 +21,7 @@ class FeedController extends Controller
                 ->pluck('friend_id')
                 ->toArray();
         }
-            
+
         $posts = Post::when(auth()->check(), function($q) use ($friend_ids) {
                 $q->where(function($q) use ($friend_ids) {
                     $q->where('user_id', user()->id);
@@ -31,7 +31,7 @@ class FeedController extends Controller
                     });
                 });
             }, function($q) {
-                $q->where('status', 2);
+                $q->where('status', 1);
             })
             ->with(['user', 'comments.user', 'reactions.user'])
             ->latest()
@@ -45,12 +45,12 @@ class FeedController extends Controller
                     'content' => $post->content,
                     'status' => $post->status,
                     'comments' => CommentService::parse($post),
-                    'reactions' => $post->formattedReactions(),
+                    'reactions' => $post->formattedReactionsList(),
                     'created_at' => $post->created_at,
                     'updated_at' => $post->updated_at,
                 ];
             });
-        
+
 
         $feed = $posts->sortByDesc('created_at')->values();
         
