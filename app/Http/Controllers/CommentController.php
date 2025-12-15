@@ -34,6 +34,10 @@ class CommentController extends Controller
             return response()->json(['error' => 'Resource not found'], 404);
         }
 
+        if ($commentable->commentable_type == "App\Models\comment") {
+            return response()->json(['error' => 'Comment level restriction'], 404);
+        }
+
         $comment = Comment::create([
             'user_id' => user()->id,
             'content' => $request->comment,

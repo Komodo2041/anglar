@@ -22,6 +22,7 @@ W repozytorium znajduje się kolekcja Postmana oraz plik Swaggera.
 5. Reakcje są zwracane jako lista reakcji - zmień, żeby przekazywane były jako tablica `emoji -> ilość`
 6. Do requestu feed dowolnym sposobem dodaj paginację
 7. Dodałem posta, czemu nie widze go w endpoincie feed? mozesz poprawic?
+
 Status nie jest ustawiany automatycznie na 1.
 Można zmienić w przypadku gdy posty mają być wyśw bez weryfikacji, potwierdzenia przez admina
 
