@@ -20,6 +20,8 @@ W repozytorium znajduje się kolekcja Postmana oraz plik Swaggera.
   Zmiana na POST i dodanie zmiennej _method o wartości PUT
 
 5. Reakcje są zwracane jako lista reakcji - zmień, żeby przekazywane były jako tablica `emoji -> ilość`
+-
+
 6. Do requestu feed dowolnym sposobem dodaj paginację
 7. Dodałem posta, czemu nie widze go w endpoincie feed? mozesz poprawic?
 8. Zablokuj możliwość komentowania komentarzy dalej niż 2 poziomy
